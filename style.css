@@ -1,0 +1,19 @@
+body {
+    background: url(img/1.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+h1 {
+    color: white;
+}
+
+.planets {
+    align-items: center;
+    opacity: 0.9;
+    background: gray;
+    padding: 30px;
+    margin: auto;
+}
