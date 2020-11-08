@@ -10,6 +10,7 @@ function sendRequest(url, method = 'GET', body = null) {
 }
 
 const test = document.getElementById('planets');
+let res;
 
 fetch(endpoint)
     .then((response) => {
@@ -17,7 +18,8 @@ fetch(endpoint)
     })
     .then((data) => {
         console.log(data);
-        const res = data.results;
+        res = data.results;
+
         const html = res.map(planet => {
             return `
         <li>
@@ -31,7 +33,9 @@ fetch(endpoint)
             <span><b>population:</b> ${planet.population}</span><br>
             <span><b>rotation period:</b> ${planet.rotation_period}</span><br>
             <span><b>surface_water:</b> ${planet.surface_water}</span><br>
-            <span><b>terrain:</b> ${planet.terrain}</span>
+            <span><b>terrain:</b> ${planet.terrain}</span><br>
+<!--            <p><button id="residents" onclick="alert(\`resident: ${planet.name}\`)">People</button></p>-->
+            <p><button id="residents" onclick="peopleGenerate('${planet.name}')">People</button></p>
         </li>   
          `
         }).join('')
@@ -39,4 +43,7 @@ fetch(endpoint)
         test.innerHTML = html;
     });
 
-
+function peopleGenerate(planet) {
+    console.log(res);
+    alert(`${planet}`);
+}
