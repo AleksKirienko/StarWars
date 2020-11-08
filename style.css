@@ -10,10 +10,16 @@ h1 {
     color: white;
 }
 
-.planets {
-    align-items: center;
+.info {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    display: flex;
     opacity: 0.9;
     background: gray;
-    padding: 30px;
-    margin: auto;
+    padding: 5px;
+}
+
+li {
+    list-style-type: none; /* Убираем маркеры */
 }

@@ -9,12 +9,34 @@ function sendRequest(url, method = 'GET', body = null) {
     return fetch(url, init).then(response => response.json());
 }
 
-const planets = [];
+const test = document.getElementById('planets');
+
 fetch(endpoint)
     .then((response) => {
         return response.json();
     })
     .then((data) => {
         console.log(data);
+        const res = data.results;
+        const html = res.map(planet => {
+            return `
+        <li>
+            <span><h5 align="center">${planet.name}</h5></span>
+            <span><b>climate:</b> ${planet.climate}</span><br>
+            <span><b>created:</b> ${planet.created}</span><br>
+            <span><b>diameter:</b> ${planet.diameter}</span><br>
+            <span><b>edited:</b> ${planet.edited}</span><br>
+            <span><b>gravity:</b> ${planet.gravity}</span><br>
+            <span><b>orbital period:</b> ${planet.orbital_period}</span><br>
+            <span><b>population:</b> ${planet.population}</span><br>
+            <span><b>rotation period:</b> ${planet.rotation_period}</span><br>
+            <span><b>surface_water:</b> ${planet.surface_water}</span><br>
+            <span><b>terrain:</b> ${planet.terrain}</span>
+        </li>   
+         `
+        }).join('')
+
+        test.innerHTML = html;
     });
+
 
